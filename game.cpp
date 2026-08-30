@@ -17,6 +17,7 @@ Secret 4th and 5th strongly worded reccomendations:
 // include libraries and set namespace
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 using namespace std;
 
 //main loop
@@ -80,7 +81,7 @@ int main(){
 	cin.ignore(99999, '\n')
 	cout << "Ok, Resetting Game..." << endl;
       } else {
-	count << "Please Enter 'y' or 'n'" << endl;
+	cout << "Please Enter 'y' or 'n'" << endl;
 	cin.ignore(99999,'\n');
       }
     }
