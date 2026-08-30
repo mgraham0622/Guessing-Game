@@ -15,8 +15,16 @@ Secret 4th and 5th strongly worded reccomendations:
 */
 
 #include <iostream>
+#include <ctime>
 using namespace std;
 int main(){
-  
+  int targetNum;
+  int guess;
+  bool running;
+  bool guessed;
+
+  srand(time(NULL));
+
+  return 0;
 }
  
