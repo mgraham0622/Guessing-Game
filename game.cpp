@@ -78,7 +78,7 @@ int main(){
 	running = false;
       } else if (cont == 'y'){
 	hasInput = true;
-	cin.ignore(99999, '\n')
+	cin.ignore(99999, '\n');
 	cout << "Ok, Resetting Game..." << endl;
       } else {
 	cout << "Please Enter 'y' or 'n'" << endl;
