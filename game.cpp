@@ -27,7 +27,7 @@ int main(){
   bool running = true;
   bool guessed = false;
   bool hasInput = false;
-  char cont = 'f';
+  char cont = 'n';
 
   srand(time(NULL));
 
@@ -38,7 +38,7 @@ int main(){
     targetNum = rand() % 100;
     guessed = false;
     // loops until correct guess
-    while (guessed = false){
+    while (guessed == false){
       hasInput = false;
       cout << "Guess a Number between 1 and 100" << endl;
       // loops until correct input
@@ -47,14 +47,14 @@ int main(){
 	if (cin.fail()){
 	  cout << "Enter a Valid Number!" << endl;
 	  cin.clear();
-	  cin.ignore(99999,"\n");	
+	  cin.ignore(99999,'\n');	
 	} else if ((guess < 1) or (guess > 100)){
 	  cout << "Enter a Number between 1 and 100!" << endl;
-	  cin.ignore(99999,"\n");
+	  cin.ignore(99999,'\n');
 	} else {
 	  hasInput = true;
 	  guesses++;
-	  cin.ignore(99999,"\n");
+	  cin.ignore(99999,'\n');
 	}
       }
       // checks if guess was right
@@ -71,7 +71,18 @@ int main(){
     while (hasInput == false){
       cout << "Try Again? (y/n): ";
       cin >> cont;
-      if (cont == 'f'):
+      if (cont == 'n'){
+	hasInput = true;
+	cout << "Goodbye!" << endl;
+	running = false;
+      } else if (cont == 'y'){
+	hasInput = true;
+	cin.ignore(99999, '\n')
+	cout << "Ok, Resetting Game..." << endl;
+      } else {
+	count << "Please Enter 'y' or 'n'" << endl;
+	cin.ignore(99999,'\n');
+      }
     }
   }
   return 0;
