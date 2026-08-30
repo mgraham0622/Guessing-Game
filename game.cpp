@@ -25,36 +25,55 @@ int main(){
   int guess = -1;
   int guesses = 0;
   bool running = true;
+  bool guessed = false;
   bool hasInput = false;
-  char cont = "f";
+  char cont = 'f';
 
   srand(time(NULL));
 
   // Ask galbraith if printing with cout like this counts as using strings
   // TODO: Fix (probably)
+  // main game loop
   while (running == true){
     targetNum = rand() % 100;
-    hasInput = false
-    cout << "Guess a Number between 1 and 100" << endl;
-    while (hasInput == false){
-      cin >> guess;
-      if (cin.fail()){
-	cout << "Enter a Valid Number!" << endl;
-	cin.clear()
-	cin.ignore(99999,"\n");	
-      } else if ((guess < 1) or (guess > 100)){
-	cout << "Enter a Number between 1 and 100!" << endl;
-	cin.ignore(99999,"\n");
-      } else {
-	hasInput = true;
-	guesses++;
-	  
-	if (guess == targetNum){
-
+    guessed = false;
+    // loops until correct guess
+    while (guessed = false){
+      hasInput = false;
+      cout << "Guess a Number between 1 and 100" << endl;
+      // loops until correct input
+      while (hasInput == false){
+	cin >> guess;
+	if (cin.fail()){
+	  cout << "Enter a Valid Number!" << endl;
+	  cin.clear();
+	  cin.ignore(99999,"\n");	
+	} else if ((guess < 1) or (guess > 100)){
+	  cout << "Enter a Number between 1 and 100!" << endl;
+	  cin.ignore(99999,"\n");
+	} else {
+	  hasInput = true;
+	  guesses++;
+	  cin.ignore(99999,"\n");
 	}
       }
+      // checks if guess was right
+      if (guess == targetNum){
+	cout << "You Guessed Correctly! Number of Guesses: " << guesses << endl;
+	guessed = true;
+      } else if (guess < targetNum){
+	cout << "Too low! Try Again!" << endl;
+      } else if (guess > targetNum){
+	cout << "Too high! try Again!" << endl;
+      }
+    }
+    hasInput = false;
+    while (hasInput == false){
+      cout << "Try Again? (y/n): ";
+      cin >> cont;
+      if (cont == 'f'):
     }
   }
   return 0;
 }
- 
+
