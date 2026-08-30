@@ -36,7 +36,7 @@ int main(){
   // TODO: Fix (probably)
   // main game loop
   while (running == true){
-    targetNum = rand() % 100;
+    targetNum = (rand() % 100) + 1;
     guessed = false;
     // loops until correct guess
     while (guessed == false){
