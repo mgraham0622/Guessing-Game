@@ -80,6 +80,7 @@ int main(){
 	hasInput = true;
 	cin.ignore(99999, '\n');
 	cout << "Ok, Resetting Game..." << endl;
+	guesses = 0;
       } else {
 	cout << "Please Enter 'y' or 'n'" << endl;
 	cin.ignore(99999,'\n');
