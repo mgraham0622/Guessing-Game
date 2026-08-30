@@ -23,21 +23,35 @@ using namespace std;
 int main(){
   int targetNum = -1;
   int guess = -1;
+  int guesses = 0;
   bool running = true;
-  bool guessed = false;
-  bool has_input = false;
+  bool hasInput = false;
+  char cont = "f";
 
   srand(time(NULL));
 
-  // TODO: Ask galbraith if printing with cout like this counts as using strings
+  // Ask galbraith if printing with cout like this counts as using strings
   // TODO: Fix (probably)
   while (running == true){
     targetNum = rand() % 100;
-    cout << "Guess a Number between 1 and 100" << endl
-    while (guessed == false){
+    hasInput = false
+    cout << "Guess a Number between 1 and 100" << endl;
+    while (hasInput == false){
       cin >> guess;
       if (cin.fail()){
-	cout << "Enter a Valid Number!" << endl
+	cout << "Enter a Valid Number!" << endl;
+	cin.clear()
+	cin.ignore(99999,"\n");	
+      } else if ((guess < 1) or (guess > 100)){
+	cout << "Enter a Number between 1 and 100!" << endl;
+	cin.ignore(99999,"\n");
+      } else {
+	hasInput = true;
+	guesses++;
+	  
+	if (guess == targetNum){
+
+	}
       }
     }
   }
