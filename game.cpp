@@ -7,7 +7,7 @@ When the user guesses the number right, the program tells them how many guesses 
 /*
 3 Rules for this C++ class:
 1) No Global Variables.
-2) No Strings. Period.
+2) No Strings whatsoever
 3) Use C++ commands instead of C commands (<iostream> instead of studio, new instead of malloc, delete instead of free)
 Secret 4th and 5th strongly worded reccomendations:
 4) Avoid using a mouse when possible
