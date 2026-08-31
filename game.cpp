@@ -67,7 +67,7 @@ int main(){
 	  cin.clear();
 	  cin.ignore(99999,'\n');
 	  // checks if the guess is out of range
-	} else if ((guess < 1) or (guess > 100)){
+	} else if ((guess < 0) or (guess > 100)){
 	  cout << dialogue3 << endl;
 	  // increments guess counter if guess is valid
 	} else {
