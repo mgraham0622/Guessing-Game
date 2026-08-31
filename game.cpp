@@ -59,6 +59,7 @@ int main(){
       // loops until correct input
       while (hasInput == false){
 	cin >> guess;
+	cin.ignore(99999,'\n');
 	// checks if something other than an int was entered
 	if (cin.fail()){
 	  cout << dialogue2 << endl;
@@ -92,6 +93,7 @@ int main(){
       // gets y/n input from the user
       cout << dialogue7;
       cin >> cont;
+      cin.ignore(99999,'\n');
       // stops loop if user answers no to reset
       if (cont == 'n'){
 	hasInput = true;
