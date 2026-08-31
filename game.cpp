@@ -2,6 +2,10 @@
 This is a program that picks a random number between 1-100 and then asks the user to guess it.
 The program then tells the user if their guess was high, low, or correct.
 When the user guesses the number right, the program tells them how many guesses they tool and gives them the option to play again or quit.
+
+Created By: Matthew Graham
+
+Last Updated: 8/31/26
 */
 
 /*
@@ -22,6 +26,7 @@ using namespace std;
 
 //main loop
 int main(){
+  // defines all variables used in the program
   int targetNum = -1;
   int guess = -1;
   int guesses = 0;
@@ -40,10 +45,9 @@ int main(){
   char dialogue9[22] = "Ok, Resetting Game...";
   char dialogue10[24] = "Please Enter 'y' or 'n'";
 
-    
+  //set random seed
   srand(time(NULL));
 
-  // TODO: Fix (probably)
   // main game loop
   while (running == true){
     targetNum = (rand() % 100) + 1;
@@ -55,45 +59,52 @@ int main(){
       // loops until correct input
       while (hasInput == false){
 	cin >> guess;
+	// checks if something other than an int was entered
 	if (cin.fail()){
 	  cout << dialogue2 << endl;
+	  // resets cin function 
 	  cin.clear();
-	  cin.ignore(99999,'\n');	
+	  cin.ignore(99999,'\n');
+	  // checks if the guess is out of range
 	} else if ((guess < 1) or (guess > 100)){
 	  cout << dialogue3 << endl;
-	  cin.ignore(99999,'\n');
+	  // increments guess counter if guess is valid
 	} else {
 	  hasInput = true;
 	  guesses++;
-	  cin.ignore(99999,'\n');
 	}
       }
-      // checks if guess was right
+      // checks if guess was right and outputs it/stops the loop
       if (guess == targetNum){
 	cout << dialogue4 << guesses << endl;
 	guessed = true;
+	// outputs if guess was too low
       } else if (guess < targetNum){
 	cout << dialogue5 << endl;
+	// outputs if guess was too high
       } else if (guess > targetNum){
 	cout << dialogue6 << endl;
       }
     }
+    // checks if the user wants to restart
     hasInput = false;
     while (hasInput == false){
+      // gets y/n input from the user
       cout << dialogue7;
       cin >> cont;
+      // stops loop if user answers no to reset
       if (cont == 'n'){
 	hasInput = true;
 	cout << dialogue8 << endl;
 	running = false;
+	// resets game if user answers yes
       } else if (cont == 'y'){
 	hasInput = true;
-	cin.ignore(99999, '\n');
 	cout << dialogue9 << endl;
 	guesses = 0;
+	// asks question again if there was no yes or no
       } else {
 	cout << dialogue10 << endl;
-	cin.ignore(99999,'\n');
       }
     }
   }
