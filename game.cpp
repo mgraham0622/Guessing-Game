@@ -50,7 +50,7 @@ int main(){
 
   // main game loop
   while (running == true){
-    targetNum = (rand() % 100) + 1;
+    targetNum = (rand() % 101);
     guessed = false;
     // loops until correct guess
     while (guessed == false){
