@@ -29,10 +29,20 @@ int main(){
   bool guessed = false;
   bool hasInput = false;
   char cont = 'n';
+  char dialogue1[33] = "Guess a Number between 1 and 100";
+  char dialogue2[22] = "Enter a Valid Number!";
+  char dialogue3[34] = "Enter a Number between 1 and 100!";
+  char dialogue4[43] = "You Guessed Correctly! Number of Guesses: ";
+  char dialogue5[20] = "Too low! Try Again!";
+  char dialogue6[22] = "Too high! Try Again!";
+  char dialogue7[19] = "Try Again? (y/n): ";
+  char dialogue8[9] = "Goodbye!";
+  char dialogue9[22] = "Ok, Resetting Game...";
+  char dialogue10[24] = "Please Enter 'y' or 'n'";
 
+    
   srand(time(NULL));
 
-  // Ask galbraith if printing with cout like this counts as using strings
   // TODO: Fix (probably)
   // main game loop
   while (running == true){
@@ -41,16 +51,16 @@ int main(){
     // loops until correct guess
     while (guessed == false){
       hasInput = false;
-      cout << "Guess a Number between 1 and 100" << endl;
+      cout << dialogue1 << endl;
       // loops until correct input
       while (hasInput == false){
 	cin >> guess;
 	if (cin.fail()){
-	  cout << "Enter a Valid Number!" << endl;
+	  cout << dialogue2 << endl;
 	  cin.clear();
 	  cin.ignore(99999,'\n');	
 	} else if ((guess < 1) or (guess > 100)){
-	  cout << "Enter a Number between 1 and 100!" << endl;
+	  cout << dialogue3 << endl;
 	  cin.ignore(99999,'\n');
 	} else {
 	  hasInput = true;
@@ -60,29 +70,29 @@ int main(){
       }
       // checks if guess was right
       if (guess == targetNum){
-	cout << "You Guessed Correctly! Number of Guesses: " << guesses << endl;
+	cout << dialogue4 << guesses << endl;
 	guessed = true;
       } else if (guess < targetNum){
-	cout << "Too low! Try Again!" << endl;
+	cout << dialogue5 << endl;
       } else if (guess > targetNum){
-	cout << "Too high! try Again!" << endl;
+	cout << dialogue6 << endl;
       }
     }
     hasInput = false;
     while (hasInput == false){
-      cout << "Try Again? (y/n): ";
+      cout << dialogue7;
       cin >> cont;
       if (cont == 'n'){
 	hasInput = true;
-	cout << "Goodbye!" << endl;
+	cout << dialogue8 << endl;
 	running = false;
       } else if (cont == 'y'){
 	hasInput = true;
 	cin.ignore(99999, '\n');
-	cout << "Ok, Resetting Game..." << endl;
+	cout << dialogue9 << endl;
 	guesses = 0;
       } else {
-	cout << "Please Enter 'y' or 'n'" << endl;
+	cout << dialogue10 << endl;
 	cin.ignore(99999,'\n');
       }
     }
